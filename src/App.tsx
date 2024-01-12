@@ -12,7 +12,7 @@ import { Platform } from "./hooks/usePlatforms";
 
 export interface GameQuery {
   genreId?: number;
-  platform: Platform | null;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }
@@ -47,8 +47,10 @@ function App() {
           <GameHeading gameQuery={gameQuery} />
           <HStack spacing={5} marginBottom={5}>
             <PlatformSelector
-              selectedPlatform={gameQuery.platform}
-              onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
+              selectedPlatformId={gameQuery.platformId}
+              onSelectPlatform={(platform) =>
+                setGameQuery({ ...gameQuery, platformId: platform.id })
+              }
             />
             <SortSelector
               sortOrder={gameQuery.sortOrder}
