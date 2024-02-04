@@ -18,7 +18,7 @@ interface Props {
   platforms: Platform[];
 }
 
-function PlatformIconList({ platforms }: Props) {
+const PlatformIconList = ({ platforms }: Props) => {
   const iconsMap: { [key: string]: IconType } = {
     android: FaAndroid,
     mac: FaApple,
@@ -38,6 +38,6 @@ function PlatformIconList({ platforms }: Props) {
       ))}
     </HStack>
   );
-}
+};
 
 export default PlatformIconList;

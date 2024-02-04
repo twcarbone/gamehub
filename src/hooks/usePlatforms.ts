@@ -12,13 +12,12 @@ export interface Platform {
   slug: string;
 }
 
-function usePlatforms() {
-  return useQuery({
+const usePlatforms = () =>
+  useQuery({
     queryKey: ["platforms"],
     queryFn: apiClient.getAll,
     staleTime: ms("24h"),
     initialData: platforms,
   });
-}
 
 export default usePlatforms;

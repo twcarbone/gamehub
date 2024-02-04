@@ -12,13 +12,12 @@ export interface Genre {
   image_background: string;
 }
 
-function useGenres() {
-  return useQuery({
+const useGenres = () =>
+  useQuery({
     queryKey: ["genres"],
     queryFn: apiClient.getAll,
     staleTime: ms("24h"),
     initialData: genres,
   });
-}
 
 export default useGenres;
